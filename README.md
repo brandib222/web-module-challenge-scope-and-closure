@@ -61,6 +61,8 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+
+A closure is composed of a function and the variables/functions that inhabit that function. It happens when a function reaches into an outer function to grab a value the has been defined in the outer function.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -77,13 +79,17 @@ const dansRoll = personalDice("Dan");
 const zoesRoll = personalDice("Zoe");
 
 
+
 dansRoll();
 dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+    The closure happens when the console.log() reaches into personalDice() to get the name.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+    Dan's name will always be the same, but the number he rolls could change. 
 c. What is the lexical scope of `newRoll`? 
+    The lexical scope of `newRoll` is anything within the personalDice function.
 
 
 ### Task 3 - Stretch Goals

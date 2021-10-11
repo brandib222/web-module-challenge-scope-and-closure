@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+      Counter two is a high order function.
   2. Which of the two uses a closure? How can you tell?
-  
+      Counter one uses a closure, because count++ reaches into the outer function to get the original vaue of count. Counter2's count++ is using a global variable.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     Counter one would be best if you didn't need 'let count' for anything outside of the function. Counter 2 would be better if you need to reference 'let count' later on in your code. 
 */
 
 // counter1 code
@@ -62,10 +63,11 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(number){
+  for(let i = 0; i < number; i++)
+    return Math.floor(Math.random() * 3);
 }
-
+console.log(inning(5));
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -81,9 +83,14 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningcb, number){
+  let home = [];
+  let away = [];
+    home.push(inningcb(number));
+    away.push(inningcb(number));
+    return `Home: ${home.reduce}, Away: ${away.reduce}`
 }
+console.log(finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
